@@ -1,5 +1,5 @@
 # league-utils
-Some simple utilities for League of Legends players with multiple accounts
+Some simple utilities for League of Legends players with multiple accounts. Written in Rust
 
 # Commands
 
