@@ -56,6 +56,7 @@ fn save_permanent_settings() {
         Ok(config_contents) => {
             handle_backup_of_original(&config_contents);
             output_to_file(path_to_temp_save, &config_contents);
+            println!("Created a permanent save file!");
         },
         Err(fail) => {
             println!("We failed the operation :(");
@@ -73,6 +74,7 @@ fn load_permanent_settings() {
         Ok(config_contents) => {
             handle_backup_of_original(&config_contents);
             output_to_file(path_to_settings, &config_contents);
+            println!("Loaded a permanent save file!");
         },
         Err(fail) => {
             println!("We failed the operation :(");
@@ -89,6 +91,7 @@ fn save_temporary_settings() {
         Ok(config_contents) => {
             handle_backup_of_original(&config_contents);
             output_to_file(path_to_temp_save, &config_contents);
+            println!("Created a temporary save file!");
         },
         Err(fail) => {
             println!("We failed the operation :(");
@@ -106,6 +109,7 @@ fn load_temporary_settings() {
         Ok(config_contents) => {
             handle_backup_of_original(&config_contents);
             output_to_file(path_to_settings, &config_contents);
+            println!("Loaded a temporary save file!");
         },
         Err(fail) => {
             println!("We failed the operation :(");
@@ -123,10 +127,11 @@ fn swap_region() {
             if contents.contains("region: \"NA\"") {
                 let updated_contents = contents.replace("region: \"NA\"", "region: \"LA1\"");
                 output_to_file(output_file, &updated_contents);
+                println!("Swapped to LAN");
             } else {
                 let updated_contents = contents.replace("region: \"LA1\"", "region: \"NA\"");
                 output_to_file(output_file, &updated_contents);
-
+                println!("Swapped to NA")
             }
         },
         Err(fail) => {
